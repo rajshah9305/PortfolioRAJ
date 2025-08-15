@@ -184,6 +184,10 @@
             border-radius: 1rem;
             position: relative;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .project-image {
             width: 100%;
@@ -458,6 +462,10 @@
         .project-card .project-image-container {
             position: relative;
             overflow: hidden;
+            min-height: 192px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .project-card .project-image {
@@ -775,8 +783,13 @@
                 </div>
                 <div class="md:col-span-2 flex justify-center items-center">
                     <div class="w-64 h-80 sm:w-80 sm:h-96 rounded-lg bg-slate-800 relative group">
-                        <img src="rajshah.jpg" alt="Raj Shah" class="rounded-lg w-full h-full object-cover transition-transform duration-200 group-hover:grayscale-0">
-                        <div class="absolute inset-0 bg-teal-500/20 mix-blend-color rounded-lg group-hover:bg-transparent transition-all duration-200"></div>
+                        <div class="w-full h-full bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center">
+                            <div class="text-center text-slate-400">
+                                <div class="text-6xl mb-4">👨‍💻</div>
+                                <div class="text-lg font-semibold">Raj Shah</div>
+                                <div class="text-sm">Frontend Developer</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1008,7 +1021,13 @@
             <!-- Aura Cosmic Weave Redesign -->
             <div class="project-showcase grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center mb-24">
                 <div class="project-image-container">
-                    <img src="aura.png" alt="Aura Cosmic Weave Redesign" class="project-image">
+                    <div class="w-full h-full bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-lg flex items-center justify-center min-h-[300px]">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">✨</div>
+                            <div class="text-2xl font-bold text-slate-200 mb-2">Aura Cosmic Weave</div>
+                            <div class="text-slate-400 text-sm">Cosmic Aesthetics & Smooth Animations</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-right">
                     <p class="accent-color text-sm font-semibold">Featured Project</p>
@@ -1043,14 +1062,26 @@
                     </div>
                 </div>
                 <div class="project-image-container">
-                    <img src="webscrapper.png" alt="Elite Web Scraper" class="project-image">
+                    <div class="w-full h-full bg-gradient-to-br from-green-600/20 to-emerald-600/20 rounded-lg flex items-center justify-center min-h-[300px]">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">🕷️</div>
+                            <div class="text-2xl font-bold text-slate-200 mb-2">Elite Web Scraper</div>
+                            <div class="text-slate-400 text-sm">Advanced Anti-Detection & Efficiency</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Avant Studio -->
             <div class="project-showcase grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
                 <div class="project-image-container">
-                    <img src="avantstudio.png" alt="Avant Studio" class="project-image">
+                    <div class="w-full h-full bg-gradient-to-br from-indigo-600/20 to-purple-600/20 rounded-lg flex items-center justify-center min-h-[300px]">
+                        <div class="text-center p-8">
+                            <div class="text-6xl mb-4">🎨</div>
+                            <div class="text-2xl font-bold text-slate-200 mb-2">Avant Studio</div>
+                            <div class="text-slate-400 text-sm">Inspiring Digital Experiences</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="text-right">
                     <p class="accent-color text-sm font-semibold">Featured Project</p>
@@ -1078,8 +1109,11 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Megan Fox Fanpage Project -->
                 <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
-                    <div class="project-image-container h-48">
-                        <img src="fanpage.png" alt="Megan Fox Fanpage" class="project-image">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-pink-600/20 to-rose-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">🌟</div>
+                            <div class="text-slate-300 font-semibold text-sm">Megan Fox Fanpage</div>
+                        </div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-200 mb-3">Megan Fox Fanpage</h3>
@@ -1098,8 +1132,11 @@
 
                 <!-- Batteryyy Project -->
                 <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
-                    <div class="project-image-container h-48">
-                        <img src="battery.png" alt="Batteryyy" class="project-image">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-yellow-600/20 to-orange-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">🔋</div>
+                            <div class="text-slate-300 font-semibold text-sm">Batteryyy</div>
+                        </div>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-200 mb-3">Batteryyy</h3>
