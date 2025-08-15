@@ -1,0 +1,44 @@
+{
+  "name": "portfolio-raj",
+  "version": "1.0.0",
+  "description": "Raj Shah's professional portfolio website showcasing skills, projects, and experience as a Frontend Developer & Designer",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "npx live-server --port=8000",
+    "build": "echo 'Portfolio is already built - just HTML/CSS/JS'",
+    "deploy": "bash deploy.sh"
+  },
+  "keywords": [
+    "portfolio",
+    "frontend",
+    "developer",
+    "designer",
+    "web",
+    "react",
+    "nextjs",
+    "typescript",
+    "tailwind",
+    "gsap",
+    "ai",
+    "projects"
+  ],
+  "author": "Raj Shah",
+  "license": "MIT",
+  "homepage": "https://rajshah9305.github.io/PortfolioRAJ",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rajshah9305/PortfolioRAJ.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rajshah9305/PortfolioRAJ/issues"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Shah - Frontend Developer & Designer | Creative Web Solutions</title>
+    
+    <!-- Enhanced Meta Tags -->
+    <meta name="description" content="Raj Shah - Frontend Developer & Designer specializing in React, Next.js, and modern web technologies. Creating immersive digital experiences that drive product success.">
+    <meta name="keywords" content="frontend developer, web designer, React developer, Next.js, JavaScript, UI/UX, portfolio">
+    <meta name="author" content="Raj Shah">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Raj Shah - Frontend Developer & Designer">
+    <meta property="og:description" content="Creative web developer specializing in modern frontend technologies and beautiful user experiences.">
+    <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Raj Shah - Frontend Developer & Designer">
+    <meta property="twitter:description" content="Creative web developer specializing in modern frontend technologies and beautiful user experiences.">
+    <meta property="twitter:image" content="https://yourdomain.com/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" as="script">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- GSAP (GreenSock Animation Platform) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- tsparticles.js for animated background -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <style>
+        /* Custom styles for Awwwards-level design */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        body.loading {
+            overflow: hidden;
+        }
+
+        /* Particle background container */
+        #tsparticles {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* Enhanced Typography and Visual Hierarchy */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+        
+        h1 { font-size: clamp(3rem, 8vw, 8rem); }
+        h2 { font-size: clamp(2.5rem, 6vw, 6rem); }
+        h3 { font-size: clamp(2rem, 4vw, 3rem); }
+        
+        /* Accent color with enhanced glow effects */
+        .accent-color { 
+            color: #64ffda; 
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+            font-weight: 600;
+        }
+        .accent-border { 
+            border-color: #64ffda; 
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+        }
+
+        /* Enhanced Glassmorphism Navbar */
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Enhanced navigation links */
+        .glass-nav a {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+        
+        .glass-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #64ffda;
+            transition: width 0.2s ease;
+        }
+        
+        .glass-nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Enhanced resume button */
+        .resume-btn {
+            position: relative;
+            overflow: hidden;
+            background: rgba(100, 255, 218, 0.05);
+        }
+        
+        .resume-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+            border-color: rgba(100, 255, 218, 0.6);
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+        }
+        
+        .resume-btn:active {
+            transform: translateY(1px);
+        }
+        
+        /* Premium Preloader with enhanced animations */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #preloader .logo {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #64ffda;
+            opacity: 0;
+            position: relative;
+        }
+        #preloader .logo::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        /* Enhanced Project Showcase Styles */
+        .project-showcase {
+            margin-bottom: 12rem;
+            position: relative;
+        }
+        .project-image-container {
+            overflow: hidden;
+            border-radius: 1rem;
+            position: relative;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            filter: brightness(0.9) contrast(1.05);
+        }
+        .project-showcase:hover .project-image {
+            transform: scale(1.02);
+            filter: brightness(1) contrast(1);
+        }
+        .project-image-reveal {
+            clip-path: inset(0 100% 0 0);
+        }
+        
+        /* Enhanced skill items with clear visibility */
+        .skill-item {
+            background: rgba(30, 41, 59, 0.95);
+            border: 2px solid rgba(100, 255, 218, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+        .skill-item:hover {
+            transform: translateY(-2px);
+            border-color: rgba(100, 255, 218, 0.5);
+            box-shadow: 0 8px 20px rgba(100, 255, 218, 0.1);
+            background: rgba(100, 255, 218, 0.05);
+        }
+        .skill-item:active {
+            transform: translateY(0px);
+        }
+        
+        /* Enhanced text animations */
+        .anim-text-reveal {
+            position: relative;
+            overflow: hidden;
+        }
+        .anim-text-reveal span {
+            display: inline-block;
+            position: relative;
+        }
+        
+        /* Stable button styles without animations */
+        .magnetic-link {
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .magnetic-link:hover {
+            transform: none;
+        }
+        .magnetic-link:active {
+            transform: translateY(1px);
+        }
+        .magnetic-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: left 0.3s ease;
+        }
+        .magnetic-link:hover::before {
+            left: 100%;
+        }
+        
+        /* Enhanced button styles - stable and engaging */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            border: 2px solid rgba(100, 255, 218, 0.4);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        .cta-button:hover {
+            border-color: rgba(100, 255, 218, 0.8);
+            box-shadow: 0 0 20px rgba(100, 255, 218, 0.3);
+            background: rgba(100, 255, 218, 0.05);
+        }
+        .cta-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+        }
+        .cta-button:focus {
+            outline: 2px solid rgba(100, 255, 218, 0.6);
+            outline-offset: 2px;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: left 0.3s ease;
+        }
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        /* Enhanced section titles */
+        .section-title {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #64ffda, transparent);
+            border-radius: 2px;
+        }
+        
+        /* Enhanced mobile menu - stable */
+        .mobile-menu-link {
+            position: relative;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        .mobile-menu-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #64ffda;
+            transition: width 0.2s ease;
+            transform: translateX(-50%);
+        }
+        .mobile-menu-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Enhanced sidebar effects - stable */
+        #left-sidebar a, #right-sidebar a {
+            position: relative;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        #left-sidebar a::before, #right-sidebar a::before {
+            content: '';
+            position: absolute;
+            inset: -8px;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        #left-sidebar a:hover::before, #right-sidebar a:hover::before {
+            opacity: 1;
+            transform: none;
+        }
+        
+        /* Enhanced scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(10, 25, 47, 0.5);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #64ffda, #8892b0);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #64ffda, #64ffda);
+        }
+        
+        /* Enhanced focus states - stable */
+        .magnetic-link:focus {
+            outline: 2px solid #64ffda;
+            outline-offset: 4px;
+            box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.1);
+        }
+        
+        /* Enhanced image hover effects - stable */
+        .project-image-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            z-index: 1;
+        }
+        .project-showcase:hover .project-image-container::before {
+            opacity: 1;
+        }
+        
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Enhanced selection styling */
+        ::selection {
+            background: rgba(100, 255, 218, 0.3);
+            color: #ccd6f6;
+        }
+        
+        /* Loading animation for images */
+        .image-loading {
+            background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 768px) {
+            .project-showcase {
+                margin-bottom: 6rem;
+            }
+            
+            .skill-item:hover {
+                transform: translateY(-2px);
+            }
+        }
+        
+        /* Enhanced project card styles - stable */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(100, 255, 218, 0.02);
+        }
+        .project-card:active {
+            transform: translateY(-2px);
+        }
+        
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(100, 255, 218, 0.1), transparent);
+            transition: left 0.3s ease;
+        }
+        
+        .project-card:hover::before {
+            left: 100%;
+        }
+        
+        .project-card .project-image-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-card .project-image {
+            transition: all 0.2s ease;
+        }
+        
+        .project-card:hover .project-image {
+            transform: scale(1.02);
+        }
+        
+        /* Enhanced technology tags - stable */
+        .tech-tag {
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            color: #64ffda;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .tech-tag:hover {
+            background: rgba(100, 255, 218, 0.2);
+            border-color: rgba(100, 255, 218, 0.4);
+            transform: none;
+            box-shadow: 0 2px 8px rgba(100, 255, 218, 0.2);
+        }
+        .tech-tag:active {
+            transform: scale(0.98);
+        }
+        
+        /* Enhanced skills section styling */
+        .skills-category {
+            margin-bottom: 5rem;
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.3);
+            border-radius: 1rem;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .skills-category h3 {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #e2e8f0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skills-category h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #64ffda, #14b8a6);
+            border-radius: 2px;
+            box-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
+        }
+        
+        .skill-item .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(51, 65, 85, 0.7);
+            border-radius: 3px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .skill-item .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #64ffda, #14b8a6);
+            border-radius: 3px;
+            transition: width 1s ease-in-out;
+            position: relative;
+            box-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
+        }
+        
+        /* Enhanced skill item text sizes */
+        .skill-item p {
+            font-size: 0.875rem !important;
+            font-weight: 600 !important;
+            line-height: 1.2 !important;
+        }
+        
+        .skills-category h3 {
+            font-size: 1.25rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+        
+        .skill-item .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: none;
+            animation: none;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Enhanced skill item animations */
+        .skill-item {
+            position: relative;
+            overflow: visible;
+        }
+        
+        .skill-item::before {
+            content: none;
+        }
+        
+        .skill-item:hover::before {
+            left: none;
+        }
+        
+        .skill-item:hover .progress-fill {
+            transform: none;
+        }
+        
+        /* Enhanced text readability */
+        .text-slate-400 {
+            color: #cbd5e1 !important;
+            line-height: 1.8;
+        }
+        
+        .text-slate-300 {
+            color: #e2e8f0 !important;
+        }
+        
+        .text-slate-200 {
+            color: #f1f5f9 !important;
+        }
+        
+        /* Enhanced spacing and layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 4rem;
+            }
+        }
+        
+        /* Enhanced interactive elements - stable */
+        .magnetic-link:hover {
+            color: #64ffda !important;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+        .magnetic-link:active {
+            transform: translateY(1px);
+        }
+        
+        /* Enhanced project descriptions */
+        .project-description {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Enhanced section spacing */
+        section {
+            padding: 4rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            section {
+                padding: 6rem 0;
+            }
+        }
+        
+        /* Responsive skills grid */
+        @media (max-width: 640px) {
+            .skills-category .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 641px) and (max-width: 768px) {
+            .skills-category .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .skills-category .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        @media (min-width: 1025px) {
+            .skills-category .grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased loading">
+
+    <!-- Particle background container -->
+    <div id="tsparticles"></div>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="logo">RS</div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header id="header" class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-200 opacity-0">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold accent-color">RS</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="hover:accent-color transition-colors duration-200">About</a>
+                <a href="#skills" class="hover:accent-color transition-colors duration-200">Skills</a>
+                <a href="#projects" class="hover:accent-color transition-colors duration-200">Projects</a>
+                <a href="#contact" class="hover:accent-color transition-colors duration-200">Contact</a>
+                <a href="https://github.com/rajshah9305" target="_blank" rel="noopener noreferrer" class="px-4 py-2 border accent-border rounded-md text-sm font-medium hover:bg-teal-300/10 transition-all duration-200 resume-btn">
+                    Resume
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <i data-feather="menu" class="h-6 w-6 accent-color"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-[#0a192f] z-40 md:hidden">
+        <div class="flex flex-col items-center justify-center h-full space-y-8 text-2xl">
+            <a href="#about" class="mobile-menu-link">About</a>
+            <a href="#skills" class="mobile-menu-link">Skills</a>
+            <a href="#projects" class="mobile-menu-link">Projects</a>
+            <a href="#contact" class="mobile-menu-link">Contact</a>
+             <a href="https://github.com/rajshah9305" target="_blank" rel="noopener noreferrer" class="mt-4 px-6 py-3 border-2 accent-border rounded-md text-lg font-medium hover:bg-teal-300/10 transition-all duration-200 resume-btn">
+                Resume
+            </a>
+        </div>
+    </div>
+
+    <!-- Left Social Sidebar -->
+    <div id="left-sidebar" class="hidden md:flex fixed bottom-0 left-10 flex-col items-center space-y-6 z-10 opacity-0">
+        <a href="https://github.com/rajshah9305" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:accent-color transition-all duration-200"><i data-feather="github"></i></a>
+        <a href="https://www.linkedin.com/in/raj-shah-9a3802213/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:accent-color transition-all duration-200"><i data-feather="linkedin"></i></a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:accent-color transition-all duration-200"><i data-feather="twitter"></i></a>
+        <div class="h-24 w-px bg-slate-600"></div>
+    </div>
+
+    <!-- Right Email Sidebar -->
+    <div id="right-sidebar" class="hidden md:flex fixed bottom-0 right-10 flex-col items-center space-y-6 z-10 opacity-0">
+        <a href="mailto:rajshah9305@gmail.com" class="text-slate-400 hover:accent-color transition-all duration-200" style="writing-mode: vertical-rl;">
+            rajshah9305@gmail.com
+        </a>
+        <div class="h-24 w-px bg-slate-600"></div>
+    </div>
+
+
+    <main class="container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-start pt-20">
+            <div class="max-w-5xl w-full">
+                <div class="mb-6">
+                    <p class="text-xl accent-color mb-4 font-medium tracking-wide opacity-90">Hi, my name is</p>
+                    <h1 class="text-6xl sm:text-8xl lg:text-9xl font-black text-slate-200 mb-4 leading-tight tracking-tight">
+                        <span>Raj Shah.</span>
+                    </h1>
+                    <h2 class="text-6xl sm:text-7xl lg:text-8xl font-black text-slate-500 mb-8 leading-tight tracking-tight">
+                        <span>I build things for the web.</span>
+                    </h2>
+                </div>
+                <div class="max-w-3xl">
+                    <p class="text-xl text-slate-400 leading-relaxed mb-10">
+                        I'm a frontend-focused web developer, crafting immersive and user-friendly digital experiences that drive product success. Passionate about clean code, beautiful design, and exceptional user experiences.
+                    </p>
+                    <div>
+                        <a href="#contact" class="inline-block px-10 py-5 bg-transparent border-2 accent-border rounded-lg text-lg font-semibold accent-color hover:bg-teal-300/10 transition-colors duration-200 cta-button">
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24">
+            <h2 class="text-3xl font-bold mb-12 flex items-center">
+                <span class="accent-color mr-4 text-2xl">01.</span> About Me
+            </h2>
+            
+            <div class="grid md:grid-cols-5 gap-12 items-center">
+                <div class="md:col-span-3 text-slate-400 space-y-6 text-lg">
+                    <p class="leading-relaxed">
+                        Hello! I'm Raj, a passionate web developer with a knack for creating elegant and efficient solutions for the web. My journey into programming began with a curiosity for how things work, which quickly evolved into a full-fledged passion for building beautiful and functional websites and applications.
+                    </p>
+                    <p class="leading-relaxed">
+                        I specialize in frontend development, with a deep understanding of the entire web development lifecycle. I thrive on turning complex problems into simple, intuitive designs and am always eager to learn new technologies to stay at the forefront of the industry.
+                    </p>
+                    <p class="leading-relaxed">
+                        When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects, or sharing knowledge with the developer community. I believe in continuous learning and pushing the boundaries of what's possible on the web.
+                    </p>
+                </div>
+                <div class="md:col-span-2 flex justify-center items-center">
+                    <div class="w-64 h-80 sm:w-80 sm:h-96 rounded-lg bg-slate-800 relative group">
+                        <img src="rajshah.jpg" alt="Raj Shah" class="rounded-lg w-full h-full object-cover transition-transform duration-200 group-hover:grayscale-0">
+                        <div class="absolute inset-0 bg-teal-500/20 mix-blend-color rounded-lg group-hover:bg-transparent transition-all duration-200"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24">
+            <h2 class="text-3xl font-bold mb-12 flex items-center"><span class="accent-color mr-4 text-2xl">02.</span> My Skills</h2>
+            
+            <!-- Frontend Development -->
+            <div class="skills-category mb-12">
+                <h3 class="text-xl font-semibold text-slate-300 mb-6 flex items-center">
+                    <i data-feather="monitor" class="h-5 w-5 accent-color mr-3"></i>
+                    Frontend Development
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="h-14 w-14" alt="HTML5" />
+                        <p class="font-semibold text-slate-300 text-sm">HTML5</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="h-14 w-14" alt="CSS3" />
+                        <p class="font-semibold text-slate-300 text-sm">CSS3</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="h-14 w-14" alt="JavaScript" />
+                        <p class="font-semibold text-slate-300 text-sm">JavaScript</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="h-14 w-14" alt="React" />
+                        <p class="font-semibold text-slate-300 text-sm">React</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" class="h-14 w-14" style="filter: invert(1)" alt="Next.js" />
+                        <p class="font-semibold text-slate-300 text-sm">Next.js</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <svg class="h-14 w-14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                        </svg>
+                        <p class="font-semibold text-slate-300 text-sm">GSAP</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" class="h-14 w-14" alt="Tailwind CSS" />
+                        <p class="font-semibold text-slate-300 text-sm">Tailwind CSS</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="h-14 w-14" alt="TypeScript" />
+                        <p class="font-semibold text-slate-300 text-sm">TypeScript</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sass/sass-original.svg" class="h-14 w-14" alt="Sass" />
+                        <p class="font-semibold text-slate-300 text-sm">Sass</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Backend & Tools -->
+            <div class="skills-category mb-12">
+                <h3 class="text-xl font-semibold text-slate-300 mb-6 flex items-center">
+                    <i data-feather="server" class="h-5 w-5 accent-color mr-3"></i>
+                    Backend & Tools
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="h-14 w-14" alt="Node.js" />
+                        <p class="font-semibold text-slate-300 text-sm">Node.js</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="h-14 w-14" alt="Python" />
+                        <p class="font-semibold text-slate-300 text-sm">Python</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="h-14 w-14" alt="Git" />
+                        <p class="font-semibold text-slate-300 text-sm">Git</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="h-14 w-14" alt="GitHub" />
+                        <p class="font-semibold text-slate-300 text-sm">GitHub</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="h-14 w-14" alt="VS Code" />
+                        <p class="font-semibold text-slate-300 text-sm">VS Code</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design & Animation -->
+            <div class="skills-category mb-12">
+                <h3 class="text-xl font-semibold text-slate-300 mb-6 flex items-center">
+                    <i data-feather="palette" class="h-5 w-5 accent-color mr-3"></i>
+                    Design & Animation
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="h-14 w-14" alt="Figma" />
+                        <p class="font-semibold text-slate-300 text-sm">Figma</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <svg class="h-14 w-14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
+                        </svg>
+                        <p class="font-semibold text-slate-300 text-sm">GSAP</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <svg class="h-14 w-14" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <p class="font-semibold text-slate-300 text-sm">Framer Motion</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" class="h-14 w-14" alt="Photoshop" />
+                        <p class="font-semibold text-slate-300 text-sm">Photoshop</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" class="h-14 w-14" alt="Illustrator" />
+                        <p class="font-semibold text-slate-300 text-sm">Illustrator</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Skills -->
+            <div class="skills-category">
+                <h3 class="text-xl font-semibold text-slate-300 mb-6 flex items-center">
+                    <i data-feather="zap" class="h-5 w-5 accent-color mr-3"></i>
+                    Additional Skills
+                </h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" class="h-14 w-14" alt="MongoDB" />
+                        <p class="font-semibold text-slate-300 text-sm">MongoDB</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" class="h-14 w-14" alt="Firebase" />
+                        <p class="font-semibold text-slate-300 text-sm">Firebase</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" class="h-14 w-14" alt="Vercel" />
+                        <p class="font-semibold text-slate-300 text-sm">Vercel</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" class="h-14 w-14" alt="npm" />
+                        <p class="font-semibold text-slate-300 text-sm">npm</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item bg-slate-800/50 p-4 rounded-lg flex flex-col items-center justify-center space-y-3 transition-all duration-200 hover:!opacity-100 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/10">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/webpack/webpack-original.svg" class="h-14 w-14" alt="Webpack" />
+                        <p class="font-semibold text-slate-300 text-sm">Webpack</p>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24">
+            <h2 class="text-3xl font-bold mb-20 flex items-center"><span class="accent-color mr-4 text-2xl">03.</span> Things I've Built</h2>
+            
+            <!-- Aura Cosmic Weave Redesign -->
+            <div class="project-showcase grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center mb-24">
+                <div class="project-image-container">
+                    <img src="aura.png" alt="Aura Cosmic Weave Redesign" class="project-image">
+                </div>
+                <div class="text-right">
+                    <p class="accent-color text-sm font-semibold">Featured Project</p>
+                    <h3 class="text-3xl font-black text-slate-200 my-4">Aura Cosmic Weave Redesign</h3>
+                    <div class="project-description">
+                        <p class="text-slate-400">A modern, responsive website redesign featuring cosmic aesthetics and smooth animations. Built with Next.js and Tailwind CSS, showcasing advanced UI/UX design principles.</p>
+                    </div>
+                    <div class="mt-4 space-x-4 text-slate-400 font-mono text-sm">
+                        <span>Next.js</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vercel</span>
+                    </div>
+                    <div class="mt-6 flex items-center justify-end space-x-4">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-6 w-6"></i></a>
+                        <a href="https://v0-aura-cosmic-weave-redesign.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-6 w-6"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elite Web Scraper -->
+            <div class="project-showcase grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center mb-24">
+                <div class="text-left">
+                    <p class="accent-color text-sm font-semibold">Featured Project</p>
+                    <h3 class="text-3xl font-black text-slate-200 my-4">Elite Web Scraper</h3>
+                    <div class="project-description">
+                        <p class="text-slate-400">A sophisticated web scraping tool with advanced anti-detection capabilities, designed for efficiency and scalability. Professional grade scraping with anti-detection features.</p>
+                    </div>
+                    <div class="mt-4 space-x-4 text-slate-400 font-mono text-sm">
+                        <span>Python</span><span>Selenium</span><span>Scrapy</span><span>Proxy Rotation</span>
+                    </div>
+                    <div class="mt-6 flex items-center justify-start space-x-4">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-6 w-6"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-6 w-6"></i></a>
+                    </div>
+                </div>
+                <div class="project-image-container">
+                    <img src="webscrapper.png" alt="Elite Web Scraper" class="project-image">
+                </div>
+            </div>
+
+            <!-- Avant Studio -->
+            <div class="project-showcase grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+                <div class="project-image-container">
+                    <img src="avantstudio.png" alt="Avant Studio" class="project-image">
+                </div>
+                <div class="text-right">
+                    <p class="accent-color text-sm font-semibold">Featured Project</p>
+                    <h3 class="text-3xl font-black text-slate-200 my-4">Avant Studio</h3>
+                    <div class="project-description">
+                        <p class="text-slate-400">A sleek website for a design studio, focused on crafting inspiring digital experiences with seamless functionality. Modern design with clean aesthetics.</p>
+                    </div>
+                    <div class="mt-4 space-x-4 text-slate-400 font-mono text-sm">
+                        <span>React</span><span>Framer Motion</span><span>Styled Components</span><span>GSAP</span>
+                    </div>
+                    <div class="mt-6 flex items-center justify-end space-x-4">
+                        <a href="https://github.com/rajshah9305/Avant-studio" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-6 w-6"></i></a>
+                        <a href="https://v0-innovative-web-design-one.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-6 w-6"></i></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Other Noteworthy Projects Section -->
+        <section id="other-projects" class="py-24">
+            <h2 class="text-3xl font-bold mb-12 flex items-center"><span class="accent-color mr-4 text-2xl">04.</span> Other Noteworthy Projects</h2>
+            <p class="text-center text-slate-400 mb-8">view the archive</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Megan Fox Fanpage Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48">
+                        <img src="fanpage.png" alt="Megan Fox Fanpage" class="project-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">Megan Fox Fanpage</h3>
+                        <p class="text-slate-400 text-sm mb-4">A dynamic and visually rich fanpage concept with a futuristic, classified mission theme.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/fanpage" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://fanpage-eight.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Batteryyy Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48">
+                        <img src="battery.png" alt="Batteryyy" class="project-image">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">Batteryyy</h3>
+                        <p class="text-slate-400 text-sm mb-4">A clean utility to check your device's battery status using the Web Battery API. Features a minimalist interface.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">Battery API</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/Batteryyy" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://v0-smart-power-grid-analogy.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AgentGPT Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-purple-600/20 to-blue-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">🤖</div>
+                            <div class="text-slate-300 font-semibold text-sm">AgentGPT Platform</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">AgentGPT</h3>
+                        <p class="text-slate-400 text-sm mb-4">A production-ready, full-stack application for creating and managing autonomous AI agents powered by Cerebras and Sambanova AI models.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Next.js 14</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/agentgpt_RAJ" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://agentgpt-raj22222.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PromptCraft Palette Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-blue-600/20 to-indigo-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">⚡</div>
+                            <div class="text-slate-300 font-semibold text-sm">PromptLIB Beta</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">PromptCraft Palette</h3>
+                        <p class="text-slate-400 text-sm mb-4">A comprehensive platform for browsing and managing AI prompts with advanced search, categorization, and community features.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">AI Prompts</span>
+                            <span class="tech-tag">Community</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/promptcraft-palette" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://lovable.dev/projects/e94ce104-8fb4-438d-b165-1e0952b0fcb1" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Prompt Hub Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-purple-600/20 to-pink-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">🔧</div>
+                            <div class="text-slate-300 font-semibold text-sm">System Prompt Hub</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">System Prompt Hub</h3>
+                        <p class="text-slate-400 text-sm mb-4">A comprehensive hub for managing and optimizing AI system prompts with advanced tools and templates.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">AI Tools</span>
+                            <span class="tech-tag">Prompt Management</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/SystemPromptHub" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://system-prompt-hub.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kushweed Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-emerald-600/20 to-green-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">🌿</div>
+                            <div class="text-slate-300 font-semibold text-sm">Kushweed Platform</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">Kushweed</h3>
+                        <p class="text-slate-400 text-sm mb-4">A modern platform for cannabis enthusiasts with community features and educational content.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Community</span>
+                            <span class="tech-tag">Education</span>
+                            <span class="tech-tag">Modern UI</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/kushweed" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://lovable.dev/projects/381d845f-879b-4da2-a373-7102456f13ac" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PinkKushii Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-teal-600/20 to-gray-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">🌸</div>
+                            <div class="text-slate-300 font-semibold text-sm">Ethereal Bloom</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">PinkKushii</h3>
+                        <p class="text-slate-400 text-sm mb-4">A transcendent journey through Pink Kush with an ethereal, minimalist design and immersive user experience.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">Next.js</span>
+                            <span class="tech-tag">Minimalist Design</span>
+                            <span class="tech-tag">Immersive UX</span>
+                            <span class="tech-tag">Vercel</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/pinkkushii" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://pinkkushii.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Color Change Project -->
+                <div class="project-card bg-slate-800/30 rounded-lg overflow-hidden hover:bg-slate-800/50 transition-all duration-200 group">
+                    <div class="project-image-container h-48 bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <div class="text-4xl mb-2">🎨</div>
+                            <div class="text-slate-300 font-semibold text-sm">Advanced Color Studio</div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-200 mb-3">Image Color Change</h3>
+                        <p class="text-slate-400 text-sm mb-4">Professional-grade color detection and modification tool with AI-powered precision for image editing and color replacement.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag">AI-Powered</span>
+                            <span class="tech-tag">Color Detection</span>
+                            <span class="tech-tag">Image Processing</span>
+                            <span class="tech-tag">60+ Colors</span>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/rajshah9305/ImageColorChange" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="github" class="h-5 w-5"></i></a>
+                            <a href="https://v0-modify-pink-smoke-image.vercel.app" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:accent-color transition-colors duration-200"><i data-feather="external-link" class="h-5 w-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Skills & Achievements Section -->
+        <section class="py-24">
+            <h2 class="text-3xl font-bold mb-12 flex items-center"><span class="accent-color mr-4 text-2xl">05.</span> Additional Skills & Achievements</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div class="bg-slate-800/30 rounded-lg p-8 border border-slate-700/50">
+                    <h3 class="text-2xl font-bold text-slate-200 mb-6 flex items-center">
+                        <i data-feather="code" class="h-6 w-6 accent-color mr-3"></i>
+                        Technical Expertise
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Frontend Architecture</span>
+                            <span class="text-accent-color font-semibold">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Responsive Design</span>
+                            <span class="text-accent-color font-semibold">Expert</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Performance Optimization</span>
+                            <span class="text-accent-color font-semibold">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">API Integration</span>
+                            <span class="text-accent-color font-semibold">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Testing & Debugging</span>
+                            <span class="text-accent-color font-semibold">Intermediate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="bg-slate-800/30 rounded-lg p-8 border border-slate-700/50">
+                    <h3 class="text-2xl font-bold text-slate-200 mb-6 flex items-center">
+                        <i data-feather="users" class="h-6 w-6 accent-color mr-3"></i>
+                        Professional Skills
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Problem Solving</span>
+                            <span class="text-accent-color font-semibold">Expert</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Team Collaboration</span>
+                            <span class="text-accent-color font-semibold">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Communication</span>
+                            <span class="text-accent-color font-semibold">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Time Management</span>
+                            <span class="text-accent-color font-semibold">Advanced</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-slate-300">Continuous Learning</span>
+                            <span class="text-accent-color font-semibold">Expert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certifications & Achievements -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold text-slate-200 mb-6 text-center">Certifications & Achievements</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-br from-slate-800/40 to-slate-700/40 rounded-lg p-6 border border-slate-600/50 text-center">
+                        <div class="w-16 h-16 bg-accent-color/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="award" class="h-8 w-8 accent-color"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-slate-200 mb-2">Frontend Development</h4>
+                        <p class="text-slate-400 text-sm">Advanced certification in modern web technologies</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-slate-800/40 to-slate-700/40 rounded-lg p-6 border border-slate-600/50 text-center">
+                        <div class="w-16 h-16 bg-accent-color/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="zap" class="h-8 w-8 accent-color"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-slate-200 mb-2">Performance Optimization</h4>
+                        <p class="text-slate-400 text-sm">Expert in web performance and optimization</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-slate-800/40 to-slate-700/40 rounded-lg p-6 border border-slate-600/50 text-center">
+                        <div class="w-16 h-16 bg-accent-color/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="heart" class="h-8 w-8 accent-color"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold text-slate-200 mb-2">Open Source Contributor</h4>
+                        <p class="text-slate-400 text-sm">Active contributor to developer community</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 text-center">
+            <h2 class="text-2xl font-bold mb-4 flex items-center justify-center"><span class="accent-color mr-4 text-xl">05.</span> What's Next?</h2>
+            <h3 class="text-5xl lg:text-7xl font-black text-slate-200 mb-6 leading-tight">Get In Touch</h3>
+            <p class="max-w-2xl mx-auto text-slate-400 mb-12 text-lg leading-relaxed">
+                I'm currently open to new opportunities and my inbox is always open. Whether you have a question about a project, want to discuss potential collaborations, or just want to say hi, I'll get back to you as soon as possible!
+            </p>
+            <div>
+                 <a href="mailto:rajshah9305@gmail.com" class="inline-block px-14 py-6 bg-transparent border-2 accent-border rounded-lg text-xl font-semibold accent-color hover:bg-teal-300/10 transition-all duration-200 shadow-lg shadow-teal-500/20 cta-button">
+                    Say Hello
+                </a>
+            </div>
+            <div class="mt-8 text-slate-500 text-sm">
+                <p>Available for freelance opportunities and full-time positions</p>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="py-8 text-center">
+        <div class="flex flex-col items-center justify-center space-y-4">
+            <div class="flex space-x-6 md:hidden">
+                <a href="https://github.com/rajshah9305" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:accent-color transition-all duration-200"><i data-feather="github"></i></a>
+                <a href="https://www.linkedin.com/in/raj-shah-9a3802213/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:accent-color transition-all duration-200"><i data-feather="linkedin"></i></a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:accent-color transition-all duration-200"><i data-feather="twitter"></i></a>
+            </div>
+            <p class="text-slate-500 text-sm font-mono tracking-widest mt-4">Designed & Built by Raj Shah</p>
+        </div>
+    </footer>
+
+    
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+        
+        // --- AWWWARDS LEVEL SCRIPT ---
+
+        document.addEventListener('DOMContentLoaded', () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // --- 1. Enhanced Preloader with advanced animations ---
+            const preloader = document.getElementById('preloader');
+            const preloaderLogo = preloader.querySelector('.logo');
+            
+            // Create a timeline for the preloader
+            const preloaderTL = gsap.timeline();
+            
+            preloaderTL
+                .to(preloaderLogo, {
+                    opacity: 1,
+                    scale: 1.1,
+                    duration: 0.8,
+                    ease: 'power2.out'
+                })
+                .to(preloaderLogo, {
+                    rotation: 360,
+                    duration: 1.2,
+                    ease: 'power2.inOut'
+                })
+                .to(preloader, {
+                    y: '-100%',
+                    duration: 1.5,
+                    ease: 'power4.inOut',
+                    delay: 0.3,
+                    onComplete: () => {
+                        document.body.classList.remove('loading');
+                        preloader.style.display = 'none';
+                        startMainAnimations();
+                    }
+                });
+
+            // Removed magnetic effects for stability
+
+            function startMainAnimations() {
+                // --- 3. Enhanced Main Content Animations with staggered reveals ---
+                const headerTL = gsap.timeline();
+                headerTL
+                    .to('#header', { 
+                        opacity: 1, 
+                        y: 0, 
+                        duration: 0.8, 
+                        ease: 'power3.out' 
+                    })
+                    .to('#left-sidebar', { 
+                        opacity: 1, 
+                        x: 0, 
+                        duration: 0.6, 
+                        ease: 'power2.out' 
+                    }, '-=0.4')
+                    .to('#right-sidebar', { 
+                        opacity: 1, 
+                        x: 0, 
+                        duration: 0.6, 
+                        ease: 'power2.out' 
+                    }, '-=0.4');
+
+                // Removed text animations for stability
+                
+                // Removed skills animations for stability
+
+                // Removed project image animations for stability
+
+                // Removed project cards animations for stability
+
+
+
+                // Removed contact and about animations for stability
+            }
+            
+            // Enhanced Mobile Menu with smooth animations
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
+
+            mobileMenuButton.addEventListener('click', () => {
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    gsap.fromTo(mobileMenu, 
+                        { opacity: 0, scale: 0.9 },
+                        { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' }
+                    );
+                    gsap.fromTo(mobileMenuLinks, 
+                        { y: 20, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.4, stagger: 0.1, ease: 'power2.out' }
+                    );
+                } else {
+                    gsap.to(mobileMenu, {
+                        opacity: 0,
+                        scale: 0.9,
+                        duration: 0.3,
+                        ease: 'power2.in',
+                        onComplete: () => mobileMenu.classList.add('hidden')
+                    });
+                }
+            });
+            
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    gsap.to(mobileMenu, {
+                        opacity: 0,
+                        scale: 0.9,
+                        duration: 0.3,
+                        ease: 'power2.in',
+                        onComplete: () => mobileMenu.classList.add('hidden')
+                    });
+                });
+            });
+
+            // --- 4. Enhanced tsparticles with better performance and effects ---
+            async function loadParticles() {
+                await tsParticles.load("tsparticles", {
+                    background: {
+                        color: {
+                            value: "#0a192f"
+                        }
+                    },
+                    fpsLimit: 60,
+                    interactivity: {
+                        events: {
+                            onClick: {
+                                enable: true,
+                                mode: "push"
+                            },
+                            onHover: {
+                                enable: true,
+                                mode: "grab",
+                                parallax: {
+                                    enable: true,
+                                    force: 60,
+                                    smooth: 10
+                                }
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            push: {
+                                quantity: 6,
+                                particles: {
+                                    color: "#64ffda",
+                                    size: {
+                                        value: 4,
+                                        random: true
+                                    }
+                                }
+                            },
+                            grab: {
+                                distance: 140,
+                                links: {
+                                    opacity: 0.5
+                                }
+                            }
+                        }
+                    },
+                    particles: {
+                        color: {
+                            value: ["#8892b0", "#64ffda", "#ccd6f6"]
+                        },
+                        links: {
+                            color: "#8892b0",
+                            distance: 150,
+                            enable: true,
+                            opacity: 0.3,
+                            width: 1,
+                            triangles: {
+                                enable: true,
+                                opacity: 0.1
+                            }
+                        },
+                        collisions: {
+                            enable: true,
+                            mode: "bounce"
+                        },
+                        move: {
+                            direction: "none",
+                            enable: true,
+                            outModes: {
+                                default: "bounce"
+                            },
+                            random: false,
+                            speed: 1.5,
+                            straight: false,
+                            trail: {
+                                enable: true,
+                                length: 3,
+                                fill: { color: "#0a192f" }
+                            }
+                        },
+                        number: {
+                            density: {
+                                enable: true,
+                                area: 800
+                            },
+                            value: 40
+                        },
+                        opacity: {
+                            value: 0.4,
+                            animation: {
+                                enable: true,
+                                speed: 1,
+                                minimumValue: 0.1
+                            }
+                        },
+                        shape: {
+                            type: "circle"
+                        },
+                        size: {
+                            value: { min: 1, max: 3 },
+                            animation: {
+                                enable: true,
+                                speed: 2,
+                                minimumValue: 0.1
+                            }
+                        }
+                    },
+                    detectRetina: true
+                });
+            }
+            
+            // Load particles after a short delay for better performance
+            setTimeout(loadParticles, 1000);
+
+            // --- 5. Enhanced scroll effects and performance ---
+            let ticking = false;
+            
+            function updateOnScroll() {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        // Add any scroll-based effects here
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', updateOnScroll, { passive: true });
+        });
+    </script>
+</body>
+</html>
+
